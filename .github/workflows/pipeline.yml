@@ -51,4 +51,4 @@ jobs:
     - name: Install dependences 
       run: npm install
     - name: Run intefration tests
-      run: npm test-npm-security
+      run: npm run test-npm-security
