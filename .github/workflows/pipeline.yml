@@ -28,6 +28,27 @@ jobs:
         node-version: ${{matrix.node-version}}
         cache: 'npm'
     - name: Install dependences 
-      run: npm ci
+      run: npm install
     - name: Run intefration tests
       run: npm test
+
+  test-security:
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [16.x, 18.x, 20.x]
+        # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
+
+    steps:
+    - name: Checout the repository 
+      uses: actions/checkout@v3
+    - name: Use Node.js ${{matrix.node-version}}
+      uses: actions/setup-node@v3
+      with:
+        node-version: ${{matrix.node-version}}
+        cache: 'npm'
+    - name: Install dependences 
+      run: npm install
+    - name: Run intefration tests
+      run: npm test-npm-security
