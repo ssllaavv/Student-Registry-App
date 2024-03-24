@@ -11,7 +11,7 @@ on:
 
 jobs:
   build-and-test:
-
+    needs: test-security
     runs-on: ubuntu-latest
 
     strategy:
